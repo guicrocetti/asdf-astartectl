@@ -32,17 +32,17 @@ list_all_versions() {
 }
 
 download_release() {
-	local version filename url os arch
-	version="$1"
-	filename="$2"
+    local version filename url os arch
+    version="$1"
+    filename="$2"
 
-	os="$(get_os)"
-	arch="$(get_arch)"
+    os="$(get_os)"
+    arch="$(get_arch)"
 
-	url="https://github.com/astarte-platform/astartectl/releases/download/v${version}/astartectl_${version}_${os}_${arch}.tar.gz"
+    url="https://github.com/astarte-platform/astartectl/releases/download/v${version}/astartectl_${version}_linux_${arch}.tar.gz"
 
-	echo "* Downloading $TOOL_NAME release $version from $url..."
-	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
+    echo "* Downloading $TOOL_NAME release $version from $url..."
+    curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
 }
 
 install_version() {
